@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sentence-box {
+  font-size: 1.8rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  min-height: 80px;
+}
+
+.speech-section {
+  margin: 1rem;
+}
+
+.speech-section button {
+  padding: 0.8rem 1rem;
+  margin: 0.3rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.recognized, .feedback {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+video {
+  margin-top: 1rem;
+  border-radius: 10px;
+  border: 2px solid #444;
+}
