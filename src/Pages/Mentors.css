@@ -1,0 +1,406 @@
+:root {
+  /* Existing colors, potentially with softer usages */
+  --color-accent: #FFC7A7; /* Light Peach */
+  --color-secondary: #C6D870; /* Muted Green */
+  --color-primary: #B87C4C; /* Earthy Brown */
+
+  /* Softer grays and backgrounds */
+  --color-text-dark: #4A4A4A; /* Slightly softer dark text */
+  --color-text-light: #7B7B7B; /* Muted light text */
+  --color-bg-light: #FDF9F6; /* Very light, warm off-white background */
+  --color-bg-white: #FFFFFF; /* Pure white for cards, but with soft shadows */
+  
+  /* Softer shadows */
+  --shadow-soft-light: 0 4px 12px rgba(0, 0, 0, 0.08); /* More spread, less opaque */
+  --shadow-soft-medium: 0 8px 20px rgba(0, 0, 0, 0.12); /* Even more spread */
+  
+  /* Increased border-radius for softer shapes */
+  --border-radius-small: 8px;
+  --border-radius-medium: 15px;
+  --border-radius-large: 25px; /* For cards and major elements */
+
+  --transition-ease: all 0.3s ease-in-out;
+}
+
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; /* Slightly more modern font stack */
+  background-color: var(--color-bg-light);
+  margin: 0;
+  padding: 2.5rem; /* Increased padding for more breathing room */
+  color: var(--color-text-dark);
+  line-height: 1.6; /* Improved readability */
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2.5rem;
+  background-color: var(--color-bg-white);
+  border-radius: var(--border-radius-large); /* Significantly rounded corners */
+  box-shadow: var(--shadow-soft-medium); /* Soft, diffused shadow */
+  min-height: 80vh;
+}
+
+.main-title {
+  font-size: 2.8rem; /* Slightly larger for impact */
+  color: var(--color-primary);
+  margin-bottom: 0.8rem;
+  text-align: center;
+  font-weight: 700; /* Bolder for titles */
+}
+
+.subtitle {
+  color: var(--color-text-light);
+  text-align: center;
+  margin-bottom: 3rem; /* More space */
+  font-size: 1.1rem;
+}
+
+/* --- Mentor Page --- */
+.mentor-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Increased gap */
+}
+
+.search-section {
+  padding: 2rem;
+  border: 1px solid #e0e0e0; /* Still subtle border */
+  border-radius: var(--border-radius-medium); /* Rounded */
+  box-shadow: var(--shadow-soft-light); /* Soft shadow */
+}
+
+.search-box-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.search-box-wrapper input {
+  flex-grow: 1;
+  padding: 1.1rem; /* Increased padding */
+  border: 1px solid #d0d0d0; /* Softer border */
+  border-radius: var(--border-radius-medium); /* Rounded */
+  font-size: 1rem;
+  transition: border-color var(--transition-ease), box-shadow var(--transition-ease);
+}
+
+.search-box-wrapper input:focus {
+  outline: none;
+  border-color: var(--color-accent); /* Focus color */
+  box-shadow: 0 0 0 3px rgba(var(--color-accent), 0.2); /* Soft focus ring */
+}
+
+.search-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.clear-btn, .search-btn {
+  padding: 0.85rem 1.8rem; /* Adjusted padding */
+  border: none;
+  border-radius: var(--border-radius-medium); /* Rounded */
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition-ease);
+}
+
+.clear-btn {
+  background-color: #f2f2f2;
+  color: var(--color-text-light);
+}
+
+.search-btn {
+  background-color: var(--color-accent);
+  color: var(--color-text-dark);
+  box-shadow: var(--shadow-soft-light); /* Soft button shadow */
+}
+
+.search-btn:hover, .clear-btn:hover {
+  transform: translateY(-3px); /* Gentle lift */
+  box-shadow: var(--shadow-soft-medium); /* Enhanced shadow on hover */
+}
+
+.mentors-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); /* Slightly larger min-width */
+  gap: 2rem; /* Increased gap */
+}
+
+.mentor-card {
+  border: 1px solid #e0e0e0;
+  border-radius: var(--border-radius-large); /* Very rounded cards */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-soft-light); /* Soft card shadow */
+  transition: var(--transition-ease);
+}
+
+.mentor-card:hover {
+  transform: translateY(-8px); /* More pronounced, soft lift */
+  box-shadow: var(--shadow-soft-medium); /* Enhanced shadow on hover */
+}
+
+.mentor-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-pic {
+  width: 80px; /* Larger profile pictures */
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-accent); /* A subtle accent ring */
+  box-shadow: 0 2px 8px rgba(var(--color-accent), 0.3); /* Soft glow around pic */
+}
+
+.mentor-name {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.mentor-title {
+  margin: 0;
+  color: var(--color-text-light);
+  font-size: 1rem;
+}
+
+.specialization-text {
+  flex-grow: 1;
+  color: var(--color-text-dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.8rem;
+}
+
+.tag {
+  background-color: var(--color-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-medium); /* Rounded tags */
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+  white-space: nowrap;
+  opacity: 0.9; /* Slightly softer appearance */
+}
+
+.view-profile-btn {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-weight: 700;
+  cursor: pointer;
+  align-self: flex-start;
+  font-size: 1.05rem;
+  transition: color var(--transition-ease), transform 0.2s;
+}
+
+.view-profile-btn:hover {
+  color: #8c5b32;
+  transform: translateX(5px); /* Gentle slide effect */
+}
+
+
+/* --- Plans Page --- */
+.plans-page {
+  text-align: center;
+}
+
+.plans-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+}
+
+.plan-card {
+  border-radius: var(--border-radius-large); /* Very rounded */
+  padding: 2.5rem;
+  text-align: left;
+  box-shadow: var(--shadow-soft-light); /* Soft shadow */
+  width: 100%;
+  max-width: 350px; /* Slightly wider cards */
+  position: relative;
+  border: 3px solid transparent;
+  transition: var(--transition-ease);
+}
+
+.plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-soft-medium);
+}
+
+.plan-card.monthly {
+  background-color: var(--color-accent);
+  border-color: var(--color-primary); /* Border for emphasis */
+  color: var(--color-text-dark); /* Ensure text contrasts */
+}
+
+.plan-card.yearly {
+  background-color: var(--color-secondary);
+  color: var(--color-text-dark);
+}
+
+.plan-card.free {
+    background-color: var(--color-bg-white); /* Keep free plan white but with soft shadows */
+    border-color: #f0f0f0;
+}
+
+.plan-card h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.most-popular {
+  position: absolute;
+  top: -20px; /* Slightly lower to accommodate rounded card */
+  right: 20px;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius-large); /* Rounded pill shape */
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-soft-light);
+}
+
+.price {
+  font-size: 3.5rem; /* Larger price */
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1; /* Tighter line height for price */
+  margin-bottom: 0.5rem;
+}
+
+.per-month {
+  font-size: 0.5em;
+  font-weight: 400;
+  color: var(--color-text-light);
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0; /* More spacing */
+}
+
+.plan-card li {
+  margin-bottom: 1rem;
+  color: var(--color-text-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.05rem;
+}
+
+.choose-btn, .current-plan-btn {
+  width: 100%;
+  padding: 1.1rem;
+  border: none;
+  border-radius: var(--border-radius-medium); /* Rounded buttons */
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: var(--transition-ease);
+  box-shadow: var(--shadow-soft-light); /* Soft button shadow */
+}
+
+.choose-btn {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.choose-btn:hover {
+  background-color: #8c5b32; /* Slightly darker primary on hover */
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft-medium);
+}
+
+.current-plan-btn {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+  box-shadow: none; /* No shadow for disabled button */
+}
+
+.back-btn {
+  margin-top: 2.5rem;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: color var(--transition-ease), transform 0.2s;
+}
+
+.back-btn:hover {
+  color: #8c5b32;
+  transform: translateX(-5px); /* Gentle slide back */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem;
+  }
+  .app-container {
+    padding: 1.5rem;
+    border-radius: var(--border-radius-medium);
+  }
+  .main-title {
+    font-size: 2.2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .search-section {
+    padding: 1.5rem;
+  }
+  .search-box-wrapper input {
+    padding: 0.9rem;
+  }
+  .clear-btn, .search-btn {
+    padding: 0.7rem 1.2rem;
+  }
+  .mentors-container {
+    grid-template-columns: 1fr; /* Stack on small screens */
+  }
+  .mentor-card {
+    padding: 1.5rem;
+    border-radius: var(--border-radius-medium);
+  }
+  .mentor-name {
+    font-size: 1.4rem;
+  }
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+  }
+  .plans-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .plan-card {
+    padding: 2rem;
+    border-radius: var(--border-radius-medium);
+  }
+  .price {
+    font-size: 3rem;
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import * as faceapi from "face-api.js";
-import "./ExercisePage.css"; // Import the new CSS file
+import "./ExercisePage1.css"; // Import the new CSS file
 
 // The rest of your functions (stringSimilarity, etc.) remain the same
 // ... [Place your existing functions here: stringSimilarity, etc.]

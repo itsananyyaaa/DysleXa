@@ -3,159 +3,88 @@ import React from "react";
 export default function LandingPage() {
   const sections = [
     {
-      title: "Let's Start Learning",
-      description: "Jump into our reading-assistance app and enhance your skills.",
+      title: "Start Learning",
+      description: "Jump into our reading-assistance section and enhance your skills with interactive exercises.",
       buttonText: "Start Learning",
       href: "/exercise",
+      icon: "📚",
+      color: "from-[#FFC7A7] to-[#B87C4C]"
     },
     {
-      title: "Quiz Section",
-      description: "Test your knowledge and track your progress with fun quizzes.",
+      title: "Take a Quiz",
+      description: "Test your knowledge and track your progress with our fun and engaging quizzes.",
       buttonText: "Take a Quiz",
       href: "/quiz",
+      icon: "📝",
+      color: "from-[#C6D870] to-[#FFC7A7]"
     },
     {
-      title: "Community Hub",
-      description: "Share your achievements and connect with fellow learners.",
+      title: "Join the Community",
+      description: "Share your achievements and connect with a supportive community of fellow learners.",
       buttonText: "Join Community",
-      href: "/quiz",
+      href: "/community",
+      icon: "👥",
+      color: "from-[#B87C4C] to-[#C6D870]"
     },
     {
-      title: "Expert Mentors",
-      description: "Get personalized guidance from our expert mentors for $100/month.",
+      title: "Find a Mentor",
+      description: "Get personalized, one-on-one guidance from our expert mentors to reach your goals.",
       buttonText: "Find a Mentor",
-      href: "/quiz",
+      href: "/mentors",
+      icon: "🧑‍🏫",
+      color: "from-[#B87C4C] to-[#FFC7A7]"
     },
   ];
 
-  const containerStyle = {
-    minHeight: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-between",
-    background: "linear-gradient(to bottom right, #f8fafc, #e2e8f0)",
-    fontFamily: "Arial, sans-serif",
-    color: "#111",
-    padding: "40px 20px",
-    boxSizing: "border-box",
-  };
-
-  const headerStyle = {
-    marginBottom: "40px",
-    textAlign: "center",
-  };
-
-  const titleStyle = {
-    fontSize: "64px",
-    fontWeight: "bold",
-    margin: 0,
-    background: "linear-gradient(to right, #2563eb, #7c3aed, #f59e0b)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-  };
-
-  const subtitleStyle = {
-    marginTop: "16px",
-    fontSize: "22px",
-    color: "#444",
-    maxWidth: "700px",
-    marginLeft: "auto",
-    marginRight: "auto",
-    lineHeight: "1.5",
-  };
-
-  const gridStyle = {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "30px",
-    width: "100%",
-    maxWidth: "1100px",
-  };
-
-  const cardStyle = {
-    border: "1px solid #ddd",
-    borderRadius: "12px",
-    padding: "24px",
-    background: "#fff",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
-    transition: "all 0.3s ease",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    textAlign: "center",
-    minHeight: "250px",
-  };
-
-  const cardTitle = {
-    fontSize: "20px",
-    fontWeight: "600",
-    marginBottom: "12px",
-  };
-
-  const cardDesc = {
-    fontSize: "16px",
-    marginBottom: "20px",
-    color: "#555",
-    lineHeight: "1.4",
-  };
-
-  const buttonStyle = {
-    display: "inline-block",
-    padding: "12px",
-    backgroundColor: "#2563eb",
-    color: "#fff",
-    borderRadius: "6px",
-    textDecoration: "none",
-    fontWeight: "500",
-    transition: "background 0.3s",
-  };
-
-  const footerStyle = {
-    marginTop: "60px",
-    padding: "20px",
-    color: "#666",
-    fontSize: "14px",
-    textAlign: "center",
-    width: "100%",
-    borderTop: "1px solid #ddd",
-  };
-
   return (
-    <div style={containerStyle}>
+    <div className="min-h-screen flex flex-col items-center justify-between bg-zinc-50 font-sans text-stone-900 p-8 md:p-12 lg:p-16">
       {/* Header */}
-      <div style={headerStyle}>
-        <h1 style={titleStyle}>DysleXa</h1>
-        <p style={subtitleStyle}>Your AI-powered companion for joyful and confident reading.</p>
-      </div>
+      <header className="mb-12 text-center max-w-4xl">
+        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-orange-600 to-orange-800">
+          DysleXa
+        </h1>
+        <p className="text-lg md:text-xl text-stone-600 font-medium">
+          Your AI-powered companion for joyful and confident reading.
+        </p>
+      </header>
 
-      {/* Sections */}
-      <div style={gridStyle}>
-        {sections.map((section, idx) => (
-          <div
-            key={idx}
-            style={cardStyle}
-            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 6px 16px rgba(0,0,0,0.15)")}
-            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 2px 6px rgba(0,0,0,0.08)")}
-          >
-            <div>
-              <h2 style={cardTitle}>{section.title}</h2>
-              <p style={cardDesc}>{section.description}</p>
-            </div>
-            <a
-              href={section.href}
-              style={buttonStyle}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1d4ed8")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#2563eb")}
+      {/* Sections Grid */}
+      <section className="w-full max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {sections.map((section, idx) => (
+            <div
+              key={idx}
+              className={`relative overflow-hidden bg-white p-6 rounded-3xl shadow-lg border border-stone-200 transform transition-transform duration-300 hover:scale-105`}
             >
-              {section.buttonText}
-            </a>
-          </div>
-        ))}
-      </div>
+              {/* Colored background blob for visual effect */}
+              <div
+                className={`absolute inset-x-0 -top-16 h-48 w-48 mx-auto -z-10 rounded-full blur-2xl opacity-70 bg-gradient-to-br ${section.color}`}
+              ></div>
+
+              <div className="text-center mb-4 flex justify-center items-center text-6xl">
+                {section.icon}
+              </div>
+              <h2 className="text-2xl font-bold text-stone-800 mb-2 text-center">
+                {section.title}
+              </h2>
+              <p className="text-sm text-stone-600 mb-6 text-center">
+                {section.description}
+              </p>
+              <div className="flex justify-center">
+                <a
+                  href={section.href}
+                  className={`inline-flex items-center px-6 py-3 rounded-full text-white font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 bg-gradient-to-r ${section.color}`}
+                >
+                  {section.buttonText}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Footer */}
-      <footer style={footerStyle}>
+      <footer className="mt-20 w-full text-center text-stone-500 text-sm">
         <p>&copy; {new Date().getFullYear()} DysleXa. All rights reserved.</p>
       </footer>
     </div>
