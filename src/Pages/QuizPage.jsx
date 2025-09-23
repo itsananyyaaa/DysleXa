@@ -1,7 +1,7 @@
 // import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ClipboardPenLine, Lightbulb, LineChart, BookOpen } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "../components/quizcomponents/Card";
-import { DyslexiaFriendlyText } from "@/components/DyslexiaFriendlyText";
+import { DyslexiaFriendlyText } from "../components/quizcomponents/DyslexiaFriendlyText";
 
 const features = [
   {
