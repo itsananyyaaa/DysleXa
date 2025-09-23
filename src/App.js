@@ -13,7 +13,6 @@ function App() {
         <Route path="/exercise" element={<ExercisePage />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/community" element={<CommunityHub />} />
-
       </Routes>
     </Router>
   );
