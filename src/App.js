@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
-import ExercisePage from "./Pages/ExercisePage";
 import QuizPage from "./Pages/QuizPage";
-import CommunityHub from "./Pages/CommunityHub";
 import ExercisePage1 from "./Pages/ExercisePage1";
+import CommunityHub from "./Pages/communityhub";
 
 function App() {
   return (

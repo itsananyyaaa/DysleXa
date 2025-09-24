@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import React from 'react';
 
 // Main App component
-export default function App() {
+export default function CommunityHub() {
   // Mock data for initial posts
   const [posts, setPosts] = useState([
     {
