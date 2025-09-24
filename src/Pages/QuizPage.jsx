@@ -539,7 +539,7 @@ const QuizPage = () => {
             <h2>QUIZZZZ 🚀</h2>
             <DyslexiaFriendlyText>Dyslexia is a different way of thinking, not a different way of learning.</DyslexiaFriendlyText>
           </div>
-
+          <div style={{paddingTop:"40px"}}>
           <div className="features">
             {features.map((feature, i) => (
               <Card key={i} className="feature-card" onClick={() => setCurrentView(feature.view)}>
@@ -552,6 +552,7 @@ const QuizPage = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
           </div>
         </section>
       </div>
