@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react';
-import React from 'react';
+import { useState, useRef } from "react";
+import React from "react";
 
 // Main App component
 export default function CommunityHub() {
@@ -7,45 +7,41 @@ export default function CommunityHub() {
   const [posts, setPosts] = useState([
     {
       id: crypto.randomUUID(),
-      author: 'Alex',
-      avatar: 'https://images.unsplash.com/photo-1549068106-b024baf5062d?w=200&h=200&fit=crop&q=80',
-      content: 'I just finished reading an entire book! The audio version and a speed-reader app made all the difference. I feel so proud.',
-      type: 'achievement',
-      timestamp: '2 hours ago',
-      color: 'bg-[#C6D870]',
+      author: "Alex",
+      avatar: "https://images.unsplash.com/photo-1549068106-b024baf5062d?w=200&h=200&fit=crop&q=80",
+      content: "I just finished reading an entire book! The audio version and a speed-reader app made all the difference. I feel so proud.",
+      type: "achievement",
+      timestamp: "2 hours ago",
+      color: "bg-[#C6D870]",
       replies: [
-        { author: 'You', content: 'That\'s fantastic! I\'d love to read it sometime.' },
-        { author: 'Chris', content: 'Way to go, Alex! Your dedication is inspiring.' },
+        { author: "You", content: "That's fantastic! I'd love to read it sometime." },
+        { author: "Chris", content: "Way to go, Alex! Your dedication is inspiring." },
       ],
     },
     {
       id: crypto.randomUUID(),
-      author: 'Sam',
-      avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=200&h=200&fit=crop&q=80',
-      content: 'I had a teacher make a joke about my spelling in front of the whole class. It was really embarrassing.',
-      type: 'report',
-      timestamp: '1 hour ago',
-      color: 'bg-[#FFC7A7]',
-      replies: [
-        { author: 'You', content: 'I\'m so sorry that happened. That\'s completely unprofessional and unfair.' },
-      ],
+      author: "Sam",
+      avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=200&h=200&fit=crop&q=80",
+      content: "I had a teacher make a joke about my spelling in front of the whole class. It was really embarrassing.",
+      type: "report",
+      timestamp: "1 hour ago",
+      color: "bg-[#FFC7A7]",
+      replies: [{ author: "You", content: "I'm so sorry that happened. That's completely unprofessional and unfair." }],
     },
     {
       id: crypto.randomUUID(),
-      author: 'Jamie',
-      avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&q=80',
-      content: 'Passed my driving test today! The theory was a challenge, but I kept practicing and it paid off.',
-      type: 'achievement',
-      timestamp: '3 days ago',
-      color: 'bg-[#C6D870]',
-      replies: [
-        { author: 'Chris', content: 'Huge congrats, Jamie! You totally deserve it.' },
-      ],
+      author: "Jamie",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&q=80",
+      content: "Passed my driving test today! The theory was a challenge, but I kept practicing and it paid off.",
+      type: "achievement",
+      timestamp: "3 days ago",
+      color: "bg-[#C6D870]",
+      replies: [{ author: "Chris", content: "Huge congrats, Jamie! You totally deserve it." }],
     },
   ]);
 
-  const [newPostContent, setNewPostContent] = useState('');
-  const [newPostType, setNewPostType] = useState('achievement');
+  const [newPostContent, setNewPostContent] = useState("");
+  const [newPostType, setNewPostType] = useState("achievement");
 
   // State to manage the visibility of the reporting modal
   const [isReportModalOpen, setIsReportModalOpen] = useState(false);
@@ -60,16 +56,16 @@ export default function CommunityHub() {
     if (newPostContent.trim()) {
       const newPost = {
         id: crypto.randomUUID(),
-        author: 'You', // Assuming the user is "You" for this demo
-        avatar: 'https://images.unsplash.com/photo-1549068106-b024baf5062d?w=200&h=200&fit=crop&q=80',
+        author: "You", // Assuming the user is "You" for this demo
+        avatar: "https://images.unsplash.com/photo-1549068106-b024baf5062d?w=200&h=200&fit=crop&q=80",
         content: newPostContent,
         type: newPostType,
-        timestamp: 'Just now',
-        color: newPostType === 'achievement' ? 'bg-[#C6D870]' : 'bg-[#FFC7A7]',
+        timestamp: "Just now",
+        color: newPostType === "achievement" ? "bg-[#C6D870]" : "bg-[#FFC7A7]",
         replies: [],
       };
       setPosts([newPost, ...posts]); // Add new post to the beginning of the feed
-      setNewPostContent('');
+      setNewPostContent("");
     }
   };
 
@@ -77,14 +73,16 @@ export default function CommunityHub() {
   const handleReplySubmit = (postId, replyContent) => {
     if (!replyContent.trim()) return;
 
-    setPosts(posts.map(post =>
-      post.id === postId
-        ? {
-            ...post,
-            replies: [...post.replies, { author: 'You', content: replyContent }]
-          }
-        : post
-    ));
+    setPosts(
+      posts.map((post) =>
+        post.id === postId
+          ? {
+              ...post,
+              replies: [...post.replies, { author: "You", content: replyContent }],
+            }
+          : post
+      )
+    );
   };
 
   // Function to open the report modal
@@ -103,10 +101,10 @@ export default function CommunityHub() {
   const handleReportSubmit = (reportReason) => {
     console.log(`Report submitted for post ID ${reportPostId} with reason: ${reportReason}`);
     handleCloseReportModal();
-    
+
     // Show the "report sent" pop-up
     setIsReportSentVisible(true);
-    
+
     // Hide the pop-up after 3 seconds
     setTimeout(() => {
       setIsReportSentVisible(false);
@@ -139,8 +137,8 @@ export default function CommunityHub() {
                       type="radio"
                       name="postType"
                       value="achievement"
-                      checked={newPostType === 'achievement'}
-                      onChange={() => setNewPostType('achievement')}
+                      checked={newPostType === "achievement"}
+                      onChange={() => setNewPostType("achievement")}
                       className="form-radio text-[#C6D870] w-5 h-5"
                     />
                     <span className="ml-2 text-gray-700">Achievement</span>
@@ -150,8 +148,8 @@ export default function CommunityHub() {
                       type="radio"
                       name="postType"
                       value="report"
-                      checked={newPostType === 'report'}
-                      onChange={() => setNewPostType('report')}
+                      checked={newPostType === "report"}
+                      onChange={() => setNewPostType("report")}
                       className="form-radio text-[#B87C4C] w-5 h-5"
                     />
                     <span className="ml-2 text-gray-700">Report</span>
@@ -161,7 +159,7 @@ export default function CommunityHub() {
               <button
                 type="submit"
                 className="w-full sm:w-auto px-6 py-2 rounded-xl text-white font-semibold transition-transform duration-200 transform hover:scale-105"
-                style={{ backgroundColor: newPostType === 'achievement' ? '#C6D870' : '#B87C4C' }}
+                style={{ backgroundColor: newPostType === "achievement" ? "#C6D870" : "#B87C4C" }}
               >
                 Post
               </button>
@@ -179,13 +177,11 @@ export default function CommunityHub() {
       </div>
       {/* Report Modal */}
       {isReportModalOpen && <ReportModal onClose={handleCloseReportModal} onReport={handleReportSubmit} />}
-      
+
       {/* "Report Sent" Pop-up */}
       {isReportSentVisible && (
         <div className="fixed inset-0 flex items-center justify-center p-4 z-50">
-          <div className="bg-[#C6D870] text-gray-800 font-bold px-8 py-4 rounded-xl shadow-xl">
-            Report sent! Thank you.
-          </div>
+          <div className="bg-[#C6D870] text-gray-800 font-bold px-8 py-4 rounded-xl shadow-xl">Report sent! Thank you.</div>
         </div>
       )}
     </div>
@@ -195,7 +191,7 @@ export default function CommunityHub() {
 // Component for an individual post card
 const PostCard = ({ post, onReport, onReply }) => {
   const [showReply, setShowReply] = useState(false);
-  const [replyContent, setReplyContent] = useState('');
+  const [replyContent, setReplyContent] = useState("");
 
   const handleReplyClick = () => {
     setShowReply(!showReply);
@@ -204,18 +200,14 @@ const PostCard = ({ post, onReport, onReply }) => {
   const handleReplySubmit = (e) => {
     e.preventDefault();
     onReply(post.id, replyContent);
-    setReplyContent('');
+    setReplyContent("");
   };
 
   return (
     <div className={`rounded-3xl shadow-lg p-6 flex flex-col gap-4 ${post.color}`}>
       {/* Post Content */}
       <div className="flex items-start gap-4">
-        <img
-          src={post.avatar}
-          alt={`${post.author}'s avatar`}
-          className="w-12 h-12 rounded-full border-2 border-white"
-        />
+        <img src={post.avatar} alt={`${post.author}'s avatar`} className="w-12 h-12 rounded-full border-2 border-white" />
         <div className="flex-1 min-w-0">
           <div className="flex justify-between items-center mb-1">
             <span className="font-bold text-lg text-gray-800">{post.author}</span>
@@ -275,7 +267,7 @@ const PostCard = ({ post, onReport, onReply }) => {
 
 // Component for the report modal
 const ReportModal = ({ onClose, onReport }) => {
-  const [reportReason, setReportReason] = useState('');
+  const [reportReason, setReportReason] = useState("");
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
