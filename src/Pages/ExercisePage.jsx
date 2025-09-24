@@ -104,6 +104,7 @@ function ExercisePage1() {
       return;
     }
 
+    console.log("litenoing");
     const recognition = new window.webkitSpeechRecognition();
     recognitionRef.current = recognition;
     recognition.continuous = true;
@@ -118,6 +119,7 @@ function ExercisePage1() {
 
     recognition.onresult = (event) => {
       let interimTranscript = "";
+      console.log("onResult");
       for (let i = event.resultIndex; i < event.results.length; i++) {
         const transcript = event.results[i][0].transcript;
         if (event.results[i].isFinal) finalTranscript += transcript + " ";
@@ -131,8 +133,10 @@ function ExercisePage1() {
       const trimmedText = finalTranscript.trim();
       const similarity = stringSimilarity(trimmedText, sentences[currentSentenceIndex]);
 
+      console.log("onEnd");
       if (similarity < 0.85) {
         setResultMsg("❌ Struggling. AI will read aloud!");
+        console.log("struggling,");
         try {
           const res = await fetch("http://127.0.0.1:5500/check", {
             method: "POST",
