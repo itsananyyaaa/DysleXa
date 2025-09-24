@@ -535,7 +535,7 @@ const QuizPage = () => {
     return (
       <div className="landing">
         <section>
-          <div className="landing-header">
+          <div className="landing-header" style={{ width: "100%", margin: "auto" }}>
             <h2>QUIZZZZ 🚀</h2>
             <DyslexiaFriendlyText>Dyslexia is a different way of thinking, not a different way of learning.</DyslexiaFriendlyText>
           </div>
