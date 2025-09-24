@@ -1,0 +1,133 @@
+/* General layout */
+.landing-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f8f9;
+  font-family: "Arial", sans-serif;
+  color: #1c1c1c;
+  padding: 2rem;
+}
+
+/* Header */
+.landing-header {
+  margin-bottom: 3rem;
+  text-align: center;
+  max-width: 800px;
+}
+
+.landing-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #fb923c, #ea580c, #7c2d12);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.landing-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Grid */
+.sections-grid {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .sections-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .sections-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Card */
+.card {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-blob {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Button */
+.card-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.card-button:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+.landing-footer {
+  margin-top: 3rem;
+  width: 100%;
+  text-align: center;
+  color: #777;
+  font-size: 0.85rem;
+}
