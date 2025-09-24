@@ -404,6 +404,7 @@ export default function CommunityHub() {
               placeholder="Share an achievement or report an unfair situation..."
               value={newPostContent}
               onChange={(e) => setNewPostContent(e.target.value)}
+              style={{ width: "90%" }}
             />
             <div className="form-actions">
               <div className="radio-group">
