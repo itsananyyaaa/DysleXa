@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import * as faceapi from "face-api.js";
-import "./ExercisePage1.css"; // Import the new CSS file
+import "./ExercisePage.css"; // Import the new CSS file
 
 // The rest of your functions (stringSimilarity, etc.) remain the same
 // ... [Place your existing functions here: stringSimilarity, etc.]
@@ -190,20 +190,8 @@ function ExercisePage1() {
           <p className="result-message">{resultMsg}</p>
         </div>
         <div className="webcam-container">
-          <video
-            ref={videoRef}
-            width="480"
-            height="360"
-            autoPlay
-            muted
-            className="video-feed"
-          ></video>
-          <canvas
-            ref={canvasRef}
-            width="480"
-            height="360"
-            className="webcam-overlay"
-          ></canvas>
+          <video ref={videoRef} width="480" height="360" autoPlay muted className="video-feed"></video>
+          <canvas ref={canvasRef} width="480" height="360" className="webcam-overlay"></canvas>
         </div>
       </div>
     </div>
