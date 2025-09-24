@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './DyslexiaMentorApp.css';
+import './Mentors.css';
 
 // Reusable component for a single mentor card
 const MentorCard = ({ mentor, onProfileClick }) => (
@@ -42,7 +42,7 @@ const PlanCard = ({ plan, isPopular, onChooseClick, isCurrent }) => (
   </div>
 );
 
-const DyslexiaMentorApp = () => {
+const Mentors = () => {
   const [showPlans, setShowPlans] = useState(false);
 
   const mentors = [
@@ -108,4 +108,4 @@ const DyslexiaMentorApp = () => {
   );
 };
 
-export default DyslexiaMentorApp;
+export default Mentors;

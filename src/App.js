@@ -4,6 +4,7 @@ import LandingPage from "./Pages/LandingPage";
 import QuizPage from "./Pages/QuizPage";
 import ExercisePage from "./Pages/ExercisePage";
 import CommunityHub from "./Pages/communityhub";
+import Mentors from "./Pages/Mentors";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Route path="/exercise" element={<ExercisePage />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/community" element={<CommunityHub />} />
+        <Route path="/mentors" element={<Mentors />} />
+
       </Routes>
     </Router>
   );
