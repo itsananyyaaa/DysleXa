@@ -41,8 +41,8 @@ export default function LandingPage() {
     <div className="landing-container">
       {/* Header */}
       <header className="landing-header">
-        <h1 className="landing-title">DysleXa</h1>
-        <p className="landing-subtitle">Your AI-powered companion for joyful and confident reading.</p>
+        <h1 className="landing-titles">DysleXa</h1>
+        <p className="landing-subtitles">Your AI-powered companion for joyful and confident reading.</p>
       </header>
 
       {/* Sections */}

@@ -229,9 +229,9 @@ const QuizApp = () => {
 
     return (
       <div className="landing">
-        <div className="landing-header">
-          <h2>QUIZZZZ 🚀</h2>
-          <DyslexiaFriendlyText>Dyslexia is a different way of thinking, not a different way of learning.</DyslexiaFriendlyText>
+        <div className="header">
+          <h2 className="title">QUIZZZZ 🚀</h2>
+          <DyslexiaFriendlyText className="subtitle">Dyslexia is a different way of thinking, not a different way of learning.</DyslexiaFriendlyText>
         </div>
         <div className="features">
           {features.map((f) => (
@@ -625,11 +625,11 @@ const QuizApp = () => {
 
     return (
       <div className="resource-container">
-        <div className="resource-card">
+        <div className="page-wrapper-card">
           <h2 className="resource-title">Resource Library</h2>
           <div className="resource-grid">
             {resources.map((resource, index) => (
-              <Card key={index} className="resource-card">
+              <Card key={index} className="resource-item-box">
                 <h3 className="resource-card-title">{resource.title}</h3>
                 <p className="resource-description">{resource.description}</p>
                 <a href={resource.link} target="_blank" rel="noopener noreferrer" className="resource-link">

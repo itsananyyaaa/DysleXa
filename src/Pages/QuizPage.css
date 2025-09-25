@@ -1,3 +1,10 @@
+/* Global Safety Reset (New Addition) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* Background animation */
 .app {
   min-height: 100vh;
@@ -29,20 +36,37 @@
   padding: 2rem;
 }
 
-.landing-header h2 {
-  font-size: 2.5rem;
+.header {
+  text-align: center; /* Centers all content inside the header div */
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 5rem; /* Set a consistent size */
   font-weight: bold;
-  color: #333;
+  color: #8a3636;
+  margin-top: 4rem;
+}
+
+.subtitle {
+  font-size: 3rem; /* Make the subtitle smaller */
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  color: #060606;
+  margin-top: 0.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .features {
-  margin-top: 2rem;
+  margin-top: 3rem;
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-/* Card */
+/* Card - Generic style for small, clickable cards (e.g., in landing page features) */
 .card {
   background: white;
   padding: 1.5rem;
@@ -171,14 +195,19 @@
   font-weight: bold;
 }
 
-/* General container */
+/* General container (The full-screen background wrapper) */
 .progress-container,
 .resource-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem; /* 24px */
+  /* Changed to flex-start so content starts at the top, not centered vertically */
+  justify-content: flex-start; 
+  padding: 2rem 1rem;
   min-height: 100vh;
+  /* Added centering and max-width for the overall content wrapper */
+  max-width: 900px; 
+  margin: 0 auto;
 }
 
 @media (min-width: 640px) {
@@ -188,21 +217,25 @@
   }
 }
 
-/* Card styling */
+/* Page Wrapper Card Styling (NEW/MODIFIED - The large white box) */
+/* Apply this style to the main white card container in your HTML (e.g., <div class="page-wrapper-card">) */
 .progress-card,
-.resource-card {
-  width: 100%;
-  max-width: 64rem; /* 1024px */
+.page-wrapper-card { 
+  width: 100%; /* Use 100% of the max-width: 900px set on the container */
+  max-width: 900px; /* Redundant, but safe */
   background: #ffffff;
-  padding: 2rem;
-  border-radius: 0.75rem; /* 12px */
+  padding: 2rem; 
+  border-radius: 0.75rem;
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (min-width: 640px) {
   .progress-card,
-  .resource-card {
+  .page-wrapper-card {
     padding: 2.5rem; /* 40px */
   }
 }
@@ -210,10 +243,10 @@
 /* Titles */
 .progress-title,
 .resource-title {
-  font-size: 1.875rem; /* 30px */
+  font-size: 2.5rem; /* 30px */
   font-weight: bold;
   color: #b87c4c;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 @media (min-width: 640px) {
@@ -236,21 +269,24 @@
 /* Chart container */
 .chart-wrapper {
   width: 100%;
-  height: 24rem; /* 384px */
+  height: auto; /* Allow height to adjust automatically */
+  max-height: 24rem;
+  margin-bottom: 2rem;
 }
 
 /* Button */
 .back-button {
-  margin-top: 2rem;
   background-color: #c6d870;
   color: white;
   font-weight: bold;
   padding: 0.75rem 2rem;
-  border-radius: 9999px; /* fully rounded */
+  border-radius: 9999px;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 150px;
+  margin-top: 2rem; 
 }
 
 .back-button:hover {
@@ -263,6 +299,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
+  width: 100%; /* Ensure the grid takes full width of the wrapper card */
 }
 
 @media (min-width: 640px) {
@@ -271,10 +308,26 @@
   }
 }
 
-/* Resource cards */
-.resource-card {
+/* Individual Resource Item Box (NEW/MODIFIED - The 4 smaller boxes) */
+/* You must update your HTML to use the class 'resource-item-box' on the 4 grid items */
+.resource-item-box {
+  /* Applying clean card styles to the grid item */
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
   text-align: left;
 }
+
+.resource-item-box:hover {
+  transform: scale(1.02); /* Slight scale on hover */
+  cursor: pointer;
+}
+
+
+/* Old .resource-card styling is REMOVED and consolidated into .resource-item-box */
+/* The styles below remain, but are now targeting the content inside the new .resource-item-box */
 
 /* Resource card title */
 .resource-card-title {

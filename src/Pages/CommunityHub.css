@@ -21,23 +21,29 @@
 }
 
 .header h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
+  /* Updated: Bolder and larger */
+  font-size: 3rem; 
+  font-weight: 800; 
+  color: #b87c4c; 
 }
 
 .header p {
   margin-top: 0.5rem;
-  font-size: 1.2rem;
-  opacity: 0.75;
+  font-size: 1.1rem;
+  opacity: 0.85;
+  /* Updated: Darker color for subtitle */
+  color: #4b5563; 
 }
 
 /* Post creation */
 .create-post {
   background: white;
   border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Updated: Added box shadow */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); 
   padding: 1.5rem;
   margin-bottom: 2rem;
+  border: 1px solid #ffc7a7; 
 }
 
 .create-post textarea {
@@ -64,6 +70,7 @@
   color: #555;
 }
 
+/* Updated 'Post' button style */
 .form-actions button {
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
@@ -72,32 +79,42 @@
   border: none;
   cursor: pointer;
   transition: transform 0.2s;
+  background-color: #c6d870; /* Using achievement color */
 }
 
 .form-actions button:hover {
   transform: scale(1.05);
+  background-color: #b87c4c; 
 }
 
 /* Feed */
 .feed h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: #b87c4c;
+  font-weight: 600;
 }
 
 /* Post Card */
 .post-card {
   border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
   padding: 1.5rem;
   margin-bottom: 1.5rem;
+  /* Set dark default text color for post content */
+  color: #333; 
 }
 
 .post-card.achievement {
   background: #c6d870;
+  /* Dark text for readability on green */
+  color: #1f2937; 
 }
 
 .post-card.report {
   background: #ffc7a7;
+  /* Dark text for readability on orange */
+  color: #4b5563; 
 }
 
 .post-main {
@@ -109,11 +126,18 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2px solid white;
+  /* Subtle white border */
+  border: 2px solid rgba(255, 255, 255, 0.8); 
 }
 
 .post-body {
   flex: 1;
+}
+
+.post-body p {
+  /* Ensures the post text uses the color set on the post-card */
+  color: inherit; 
+  line-height: 1.5;
 }
 
 .post-header {
@@ -130,7 +154,8 @@
 
 .timestamp {
   font-size: 0.9rem;
-  color: #555;
+  /* Darker timestamp for readability */
+  color: #6b7280; 
 }
 
 .actions {
@@ -140,8 +165,9 @@
 }
 
 .actions button {
-  background: white;
-  border: none;
+  /* Blended white background for buttons */
+  background: rgba(255, 255, 255, 0.7); 
+  border: 1px solid rgba(184, 124, 76, 0.3);
   border-radius: 20px;
   padding: 0.4rem 1rem;
   font-size: 0.9rem;
@@ -153,12 +179,15 @@
 
 .actions button:hover {
   transform: scale(1.05);
+  background: white;
 }
 
 /* Replies */
 .replies {
   margin-left: 4rem;
   margin-top: 1rem;
+  /* Ensure reply text is dark */
+  color: #4b5563; 
 }
 
 .reply {
@@ -196,7 +225,7 @@
   cursor: pointer;
 }
 
-/* Modal */
+/* Modal (Report reason popup) */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -257,22 +286,55 @@
   border: none;
 }
 
-/* Popup */
-.popup {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 60;
+/* --- Report Sent Corner Popup --- */
+
+/* Keyframes for smooth animation */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.popup div,
+/* Popup (The small "Report sent! Thank you." pop-up container) */
 .popup {
-  background: #c6d870;
-  color: #333;
-  font-weight: bold;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  /* Position to the bottom right corner */
+  bottom: 1.5rem; 
+  right: 1.5rem;  
+  
+  display: flex; 
+  justify-content: flex-end; 
+  align-items: flex-end; 
+  z-index: 9999;
+  
+  /* Make the container area transparent */
+  background: transparent; 
+}
+
+.popup div {
+  /* The actual message box styling */
+  background: #FFC7A7; /* Requested light orange background color */
+  color: #333; /* Dark text for readability on the light orange */
+  font-size: 1.1rem; 
+  font-weight: 600;
+  padding: 1rem 2rem; 
+  border-radius: 8px; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+  text-align: center;
+  
+  /* ADDED/FIXED: Explicit border to clearly define the box boundary */
+  border: 1px solid rgba(184, 124, 76, 0.5); 
+
+  /* Ensure the box snugly fits the text */
+  white-space: nowrap; 
+  display: inline-block; 
+  pointer-events: auto; 
+  
+  /* Apply the animation */
+  animation: fadeInSlideUp 0.5s ease-out forwards;
 }
