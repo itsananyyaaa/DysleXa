@@ -1,10 +1,43 @@
-# Getting Started with Create React App
+# DysleXa - Educational Tools for Dyslexia 🎓
+
+Welcome to DysleXa! A comprehensive educational platform with interactive tools.
+
+## 🎯 Featured: Sorting Algorithm Visualizer
+
+### ⭐ NEW - Interactive Sorting Visualizer
+
+An beautiful, step-by-step visualization tool for learning sorting algorithms!
+
+**Features:**
+- 🔄 **5 Sorting Algorithms**: Bubble, Selection, Insertion, Quick, Merge Sort
+- ⏮️ **Step Controls**: Next/Previous buttons for manual navigation
+- ⏱️ **Speed Control**: Adjust animation speed (1-100)
+- 📊 **Complexity Info**: Real-time Big O notation display
+- 📱 **Responsive**: Works on desktop, tablet, mobile
+- 🎨 **Beautiful UI**: Gradient design with smooth animations
+
+**Quick Links:**
+- [📖 Full Documentation](./SORTING_VISUALIZER_README.md)
+- [🚀 Deployment Guide](./DEPLOYMENT_GUIDE.md)
+- [⚡ Quick Reference](./QUICK_REFERENCE.md)
+
+**Get Started:**
+```bash
+cd dyslexa-frontend
+npm install
+npm start
+# Click "Go to Sorting Visualizer" in the app
+```
+
+---
+
+## 📋 Project Overview
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the dyslexa-frontend directory, you can run:
 
 ### `npm start`
 
